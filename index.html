@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NAÏA Collection — Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#141311;
+    --ink-soft:#3a3733;
+    --cream:#f4efe6;
+    --cream-2:#ece4d4;
+    --gold:#b8935a;
+    --line:rgba(20,19,17,0.14);
+    --line-inv:rgba(244,239,230,0.22);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Proxima Nova','Jost',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 32px;}
+  h1,h2,h3{font-family:'Didot','Instrument Serif',Georgia,serif;font-weight:400;margin:0;letter-spacing:0.005em;}
+  .eyebrow{
+    font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;
+    font-weight:500;color:var(--gold);
+  }
+  [data-lang="en"]{display:none;}
+  .lang-en [data-lang="en"]{display:inline;}
+  .lang-en [data-lang="it"]{display:none;}
+  .lang-en [data-lang-block="en"]{display:block;}
+  .lang-en [data-lang-block="it"]{display:none;}
+  [data-lang-block="en"]{display:none;}
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:22px 40px;
+    color:#fff;
+    transition:background .3s ease, padding .3s ease;
+  }
+  header.site-nav.scrolled{
+    background:rgba(20,19,17,0.92);
+    padding:14px 40px;
+    backdrop-filter:blur(6px);
+  }
+  .logo-lockup{display:flex;align-items:center;gap:10px;}
+  .logo-mark{height:26px;width:auto;}
+  .logo-word{font-family:'Didot','Instrument Serif',Georgia,serif;font-size:1.15rem;letter-spacing:0.03em;color:#fff;}
+  .logo-word em{font-style:italic;color:var(--gold);}
+  footer .logo-mark{height:30px;}
+  footer .logo-word{font-size:1.3rem;}
+  .nav-links{display:flex;gap:34px;align-items:center;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;}
+  .nav-links a{opacity:0.9;transition:opacity .2s;}
+  .nav-links a:hover{opacity:1;border-bottom:1px solid var(--gold);}
+  .nav-right{display:flex;align-items:center;gap:22px;}
+  .nav-login{
+    display:flex;align-items:center;gap:6px;
+    font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;
+    border:1px solid rgba(255,255,255,0.4);padding:8px 16px;
+    transition:all .2s ease;
+  }
+  .nav-login:hover{border-color:#fff;background:rgba(255,255,255,0.08);}
+  .lang-toggle{display:flex;gap:6px;font-size:0.75rem;letter-spacing:0.08em;cursor:pointer;}
+  .lang-toggle span{opacity:0.55;padding:2px 5px;}
+  .lang-toggle span.active{opacity:1;border-bottom:1px solid var(--gold);}
+  .nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+  .nav-burger span{width:22px;height:1px;background:#fff;display:block;}
+  @media(max-width:900px){
+    .nav-links{display:none;}
+    .nav-burger{display:flex;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;height:100vh;min-height:640px;
+    display:flex;align-items:flex-end;
+    background:#000;
+    overflow:hidden;
+  }
+  .hero img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.72;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(10,10,8,0.15) 0%, rgba(10,10,8,0.15) 40%, rgba(10,10,8,0.85) 100%);
+  }
+  .hero-content{position:relative;z-index:2;color:#fff;padding:0 0 90px;width:100%;}
+  .hero-content .eyebrow{color:var(--gold);}
+  .hero-content h1{
+    font-size:clamp(2.6rem,6vw,5.2rem);
+    line-height:1.05;
+    max-width:15ch;
+    margin:20px 0 26px;
+  }
+  .hero-content h1 em{font-style:italic;color:var(--gold);}
+  .hero-content p{
+    font-size:1.02rem;max-width:44ch;line-height:1.6;color:rgba(255,255,255,0.85);margin:0 0 34px;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    border:1px solid currentColor;padding:14px 30px;
+    font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;
+    transition:all .25s ease;
+  }
+  .btn-light{color:#fff;}
+  .btn-light:hover{background:#fff;color:var(--ink);}
+  .btn-dark{color:var(--ink);}
+  .btn-dark:hover{background:var(--ink);color:var(--cream);}
+  .scroll-cue{
+    position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+    color:#fff;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;
+    display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0.75;z-index:2;
+  }
+  .scroll-cue::after{content:"";width:1px;height:34px;background:rgba(255,255,255,0.6);animation:scrolldown 1.8s infinite;}
+  @keyframes scrolldown{0%{opacity:0;transform:scaleY(0.2);transform-origin:top;}50%{opacity:1;transform:scaleY(1);transform-origin:top;}100%{opacity:0;transform:scaleY(0.2);transform-origin:bottom;}}
+
+  /* ---------- STATEMENT ---------- */
+  .statement{padding:150px 0;text-align:center;}
+  .statement .wrap{max-width:900px;}
+  .statement h2{
+    font-size:clamp(1.7rem,3.4vw,2.6rem);
+    line-height:1.5;
+    font-style:italic;
+    color:var(--ink-soft);
+  }
+  .statement h2 span{color:var(--gold);font-style:normal;}
+
+  /* ---------- ECOSYSTEM INTRO ---------- */
+  .eco-intro{padding:0 0 70px;text-align:center;}
+  .eco-intro .wrap{max-width:760px;}
+  .eco-intro .eyebrow{display:block;margin-bottom:18px;}
+  .eco-intro h2{font-size:clamp(2rem,4vw,3rem);line-height:1.2;margin-bottom:22px;}
+  .eco-intro p{color:var(--ink-soft);line-height:1.7;font-size:0.98rem;}
+
+  /* ---------- DIVISIONS GRID ---------- */
+  .divisions{padding:0 0 140px;}
+  .div-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+    background:var(--ink);
+  }
+  .div-card{
+    position:relative;aspect-ratio:3/4;overflow:hidden;color:#fff;
+    display:flex;flex-direction:column;justify-content:flex-end;padding:34px;
+  }
+  .div-card img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    transition:transform .7s ease, filter .5s ease;filter:grayscale(0.15) brightness(0.85);
+  }
+  .div-card:hover img{transform:scale(1.06);filter:grayscale(0) brightness(0.65);}
+  .div-card::before{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.85) 100%);
+  }
+  .div-card > *{position:relative;z-index:2;}
+  .div-num{font-size:0.72rem;letter-spacing:0.16em;color:var(--gold);margin-bottom:14px;}
+  .div-card h3{font-size:1.9rem;margin-bottom:10px;line-height:1.15;}
+  .div-card .div-tag{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;opacity:0.75;margin-bottom:18px;}
+  .div-card p{font-size:0.88rem;line-height:1.55;color:rgba(255,255,255,0.82);max-width:34ch;margin:0 0 22px;}
+  .div-link{
+    font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;
+    display:inline-flex;align-items:center;gap:8px;
+    border-bottom:1px solid var(--gold);padding-bottom:4px;width:fit-content;
+  }
+  @media(max-width:900px){
+    .div-grid{grid-template-columns:1fr;}
+    .div-card{aspect-ratio:4/5;}
+  }
+
+  /* ---------- PHOTO GRID / EDITORIAL ---------- */
+  .editorial{padding:0 0 140px;}
+  .ed-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:2px;}
+  .ed-grid img{width:100%;height:100%;object-fit:cover;}
+  .ed-text{background:var(--ink);color:var(--cream);padding:60px;display:flex;flex-direction:column;justify-content:center;}
+  .ed-text .eyebrow{color:var(--gold);margin-bottom:20px;}
+  .ed-text h2{font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.25;margin-bottom:22px;}
+  .ed-text p{color:rgba(244,239,230,0.75);line-height:1.7;font-size:0.94rem;margin-bottom:30px;}
+  @media(max-width:900px){.ed-grid{grid-template-columns:1fr;}.ed-text{padding:50px 30px;}}
+
+  /* ---------- NUMBERS ---------- */
+  .numbers{padding:110px 0;background:var(--cream-2);}
+  .numbers .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;text-align:center;}
+  .num h3{font-size:clamp(2.2rem,4vw,3.2rem);color:var(--gold);margin-bottom:10px;}
+  .num p{font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);}
+  @media(max-width:700px){.numbers .wrap{grid-template-columns:repeat(2,1fr);row-gap:50px;}}
+
+  /* ---------- CTA ---------- */
+  .final-cta{
+    position:relative;padding:170px 0;text-align:center;color:#fff;overflow:hidden;
+  }
+  .final-cta img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+  .final-cta::after{content:"";position:absolute;inset:0;background:rgba(15,14,12,0.72);z-index:0;}
+  .final-cta .wrap{position:relative;z-index:1;max-width:700px;}
+  .final-cta .eyebrow{color:var(--gold);display:block;margin-bottom:22px;}
+  .final-cta h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:30px;line-height:1.2;}
+  .final-cta p{color:rgba(255,255,255,0.8);margin-bottom:38px;line-height:1.6;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);color:var(--cream);padding:90px 0 30px;}
+  .footer-top{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:50px;padding-bottom:70px;border-bottom:1px solid var(--line-inv);}
+  .footer-brand .logo-lockup{margin-bottom:22px;}
+  .footer-brand p{color:rgba(244,239,230,0.6);font-size:0.88rem;line-height:1.6;max-width:32ch;}
+  .footer-col h4{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-weight:500;}
+  .footer-col a{display:block;font-size:0.9rem;color:rgba(244,239,230,0.78);margin-bottom:13px;transition:color .2s;}
+  .footer-col a:hover{color:#fff;}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:26px;font-size:0.76rem;color:rgba(244,239,230,0.45);flex-wrap:wrap;gap:14px;}
+  @media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr;row-gap:40px;}}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease;}
+  .reveal.is-visible{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<header class="site-nav" id="siteNav">
+  <a class="nav-logo" href="#top"><span class="logo-lockup"><img class="logo-mark" src="data:image/png;base64,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" alt="NAÏA"><span class="logo-word">NAÏA <em>Collection</em></span></span></a>
+  <nav class="nav-links">
+    <a href="#ecosistema" data-lang="it">Ecosistema</a><a href="#ecosistema" data-lang="en">Ecosystem</a>
+    <a href="#divisioni" data-lang="it">Divisioni</a><a href="#divisioni" data-lang="en">Divisions</a>
+    <a href="#chi-siamo" data-lang="it">Chi siamo</a><a href="#chi-siamo" data-lang="en">About</a>
+    <a href="#contatti" data-lang="it">Contatti</a><a href="#contatti" data-lang="en">Contact</a>
+  </nav>
+  <div class="nav-right">
+    <div class="lang-toggle" id="langToggle">
+      <span class="active" data-set-lang="it">IT</span>/<span data-set-lang="en">EN</span>
+    </div>
+    <a class="nav-login" href="https://travel.naiacollection.com/dashboard" target="_blank" rel="noopener">
+      <span data-lang="it">Accedi</span><span data-lang="en">Sign in</span>
+    </a>
+    <div class="nav-burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <img src="/hero.jpg" alt="Villa in Toscana">
+  <div class="hero-content wrap">
+    <span class="eyebrow" data-lang="it">Il gruppo NAÏA</span>
+    <span class="eyebrow" data-lang="en">The NAÏA Group</span>
+    <h1>
+      <span data-lang="it">Un ecosistema per chi <em>possiede</em> e per chi <em>vive</em> la casa.</span>
+      <span data-lang="en">An ecosystem for those who <em>own</em> and those who <em>live</em> the home.</span>
+    </h1>
+    <p data-lang="it">Tre divisioni, un unico standard di eccellenza: valorizziamo il patrimonio immobiliare, lo promuoviamo agli ospiti giusti e lo gestiamo ogni giorno con cura assoluta.</p>
+    <p data-lang="en">Three divisions, one standard of excellence: we enhance real estate assets, promote them to the right guests, and manage them daily with absolute care.</p>
+    <a href="#ecosistema" class="btn btn-light">
+      <span data-lang="it">Scopri l'ecosistema</span><span data-lang="en">Discover the ecosystem</span>
+    </a>
+  </div>
+  <div class="scroll-cue"><span data-lang="it">Scorri</span><span data-lang="en">Scroll</span></div>
+</section>
+
+<section class="statement reveal">
+  <div class="wrap">
+    <h2 data-lang="it">Non gestiamo semplicemente proprietà. <span>Costruiamo valore</span>, per chi possiede e per chi soggiorna.</h2>
+    <h2 data-lang="en">We don't simply manage properties. <span>We build value</span>, for owners and for guests.</h2>
+  </div>
+</section>
+
+<section class="eco-intro reveal" id="ecosistema">
+  <div class="wrap">
+    <span class="eyebrow" data-lang="it">L'ecosistema NAÏA</span>
+    <span class="eyebrow" data-lang="en">The NAÏA ecosystem</span>
+    <h2 data-lang="it">Il proprietario e l'ospite, <br>al centro di tutto.</h2>
+    <h2 data-lang="en">The owner and the guest, <br>at the center of everything.</h2>
+    <p data-lang="it">Ogni divisione del gruppo nasce per rispondere a un momento preciso della vita di una proprietà: la sua valorizzazione, la sua promozione, la sua gestione quotidiana. Insieme formano un unico percorso, coordinato e su misura.</p>
+    <p data-lang="en">Each division of the group exists to answer a precise moment in a property's life: its enhancement, its promotion, its everyday management. Together they form a single, coordinated, tailor-made journey.</p>
+  </div>
+</section>
+
+<section class="divisions" id="divisioni">
+  <div class="div-grid">
+
+    <a class="div-card reveal" href="https://revalue.naiacollection.com" target="_blank" rel="noopener">
+      <img src="/revalue.jpg" alt="NAIA ReValue">
+      <span class="div-num">01 — <span data-lang="it">Valorizzazione</span><span data-lang="en">Enhancement</span></span>
+      <h3>NAÏA ReValue</h3>
+      <span class="div-tag" data-lang="it">Progettazione &amp; valorizzazione immobiliare</span>
+      <span class="div-tag" data-lang="en">Design &amp; real estate enhancement</span>
+      <p data-lang="it">Ristrutturazione, interior design e consulenza tecnica per trasformare ogni immobile nel suo massimo potenziale.</p>
+      <p data-lang="en">Renovation, interior design and technical consultancy to bring every property to its full potential.</p>
+      <span class="div-link"><span data-lang="it">Scopri la divisione</span><span data-lang="en">Discover the division</span> →</span>
+    </a>
+
+    <a class="div-card reveal" href="https://travel.naiacollection.com" target="_blank" rel="noopener">
+      <img src="/travel.jpg" alt="NAIA Travel">
+      <span class="div-num">02 — <span data-lang="it">Promozione</span><span data-lang="en">Promotion</span></span>
+      <h3>NAÏA Travel</h3>
+      <span class="div-tag" data-lang="it">Soggiorni &amp; esperienze di viaggio</span>
+      <span class="div-tag" data-lang="en">Stays &amp; travel experiences</span>
+      <p data-lang="it">Il portale che porta gli ospiti giusti nelle nostre ville: ricerca, prenotazione e curated experience.</p>
+      <p data-lang="en">The portal that brings the right guests to our villas: search, booking and curated experiences.</p>
+      <span class="div-link"><span data-lang="it">Scopri la divisione</span><span data-lang="en">Discover the division</span> →</span>
+    </a>
+
+    <a class="div-card reveal" href="https://homerentals.naiacollection.com" target="_blank" rel="noopener">
+      <img src="/rentals.jpg" alt="NAIA Home Rentals & Management">
+      <span class="div-num">03 — <span data-lang="it">Manutenzione</span><span data-lang="en">Maintenance</span></span>
+      <h3>NAÏA Rentals &amp; Management</h3>
+      <span class="div-tag" data-lang="it">Gestione &amp; cura quotidiana</span>
+      <span class="div-tag" data-lang="en">Daily management &amp; care</span>
+      <p data-lang="it">Gestione operativa, manutenzione e presenza costante sul territorio per ogni proprietà in portafoglio.</p>
+      <p data-lang="en">Operational management, maintenance and constant on-the-ground presence for every property in our portfolio.</p>
+      <span class="div-link"><span data-lang="it">Scopri la divisione</span><span data-lang="en">Discover the division</span> →</span>
+    </a>
+
+  </div>
+</section>
+
+<section class="editorial reveal" id="chi-siamo">
+  <div class="ed-grid">
+    <img src="/editorial.jpg" alt="Interno di lusso">
+    <div class="ed-text">
+      <span class="eyebrow" data-lang="it">Chi siamo</span>
+      <span class="eyebrow" data-lang="en">About us</span>
+      <h2 data-lang="it">Radici toscane, standard internazionale.</h2>
+      <h2 data-lang="en">Tuscan roots, international standard.</h2>
+      <p data-lang="it">NAÏA nasce dall'unione tra la conoscenza profonda del territorio e un metodo di lavoro rigoroso, pensato per proprietari che cercano un partner unico lungo tutto il ciclo di vita del loro immobile.</p>
+      <p data-lang="en">NAÏA was born from the union of deep local knowledge and a rigorous way of working, designed for owners seeking a single partner across the entire lifecycle of their property.</p>
+      <a href="#contatti" class="btn btn-light" style="align-self:flex-start;">
+        <span data-lang="it">Parla con noi</span><span data-lang="en">Talk to us</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="numbers reveal">
+  <div class="wrap">
+    <div class="num"><h3>3</h3><p data-lang="it">Divisioni specializzate</p><p data-lang="en">Specialized divisions</p></div>
+    <div class="num"><h3>1</h3><p data-lang="it">Unico punto di contatto</p><p data-lang="en">Single point of contact</p></div>
+    <div class="num"><h3>360°</h3><p data-lang="it">Ciclo di vita coperto</p><p data-lang="en">Lifecycle covered</p></div>
+    <div class="num"><h3>IT / EN</h3><p data-lang="it">Team bilingue</p><p data-lang="en">Bilingual team</p></div>
+  </div>
+</section>
+
+<section class="final-cta reveal" id="contatti">
+  <img src="/cta.jpg" alt="Piscina vista tramonto">
+  <div class="wrap">
+    <span class="eyebrow" data-lang="it">Iniziamo un percorso</span>
+    <span class="eyebrow" data-lang="en">Let's start a journey</span>
+    <h2 data-lang="it">Hai una proprietà da valorizzare, promuovere o gestire?</h2>
+    <h2 data-lang="en">Do you have a property to enhance, promote or manage?</h2>
+    <p data-lang="it">Raccontaci il tuo progetto: ti mettiamo in contatto con la divisione più adatta.</p>
+    <p data-lang="en">Tell us about your project: we'll connect you with the right division.</p>
+    <a href="mailto:info@naiacollection.com" class="btn btn-light">
+      <span data-lang="it">Scrivici</span><span data-lang="en">Get in touch</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo-lockup"><img class="logo-mark" src="data:image/png;base64,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" alt="NAÏA"><span class="logo-word">NAÏA <em>Collection</em></span></span>
+        <p data-lang="it">Un ecosistema di servizi immobiliari costruito attorno a proprietari e ospiti.</p>
+        <p data-lang="en">A real estate services ecosystem built around owners and guests.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-lang="it">Divisioni</h4><h4 data-lang="en">Divisions</h4>
+        <a href="https://revalue.naiacollection.com" target="_blank" rel="noopener">NAÏA ReValue</a>
+        <a href="https://travel.naiacollection.com" target="_blank" rel="noopener">NAÏA Travel</a>
+        <a href="https://homerentals.naiacollection.com" target="_blank" rel="noopener">NAÏA Rentals &amp; Management</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-lang="it">Gruppo</h4><h4 data-lang="en">Group</h4>
+        <a href="#chi-siamo" data-lang="it">Chi siamo</a><a href="#chi-siamo" data-lang="en">About</a>
+        <a href="#ecosistema" data-lang="it">Ecosistema</a><a href="#ecosistema" data-lang="en">Ecosystem</a>
+        <a href="#contatti" data-lang="it">Contatti</a><a href="#contatti" data-lang="en">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-lang="it">Contatti</h4><h4 data-lang="en">Contact</h4>
+        <a href="mailto:info@naiacollection.com">info@naiacollection.com</a>
+        <a href="#" data-lang="it">Instagram</a><a href="#" data-lang="en">Instagram</a>
+        <a href="#" data-lang="it">LinkedIn</a><a href="#" data-lang="en">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 NAÏA Collection Group</span>
+      <span data-lang="it">Toscana, Italia</span><span data-lang="en">Tuscany, Italy</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // nav scroll state
+  const nav = document.getElementById('siteNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // lang toggle
+  const langToggle = document.getElementById('langToggle');
+  langToggle.addEventListener('click', (e) => {
+    const target = e.target.closest('[data-set-lang]');
+    if(!target) return;
+    const lang = target.getAttribute('data-set-lang');
+    document.body.classList.toggle('lang-en', lang === 'en');
+    langToggle.querySelectorAll('span[data-set-lang]').forEach(s => s.classList.toggle('active', s === target));
+    document.documentElement.lang = lang;
+  });
+
+  // reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){ entry.target.classList.add('is-visible'); }
+    });
+  }, {threshold:0.12});
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

@@ -60,11 +60,14 @@
     --line:rgba(64,51,45,0.16);
     --line-inv:rgba(242,238,235,0.22);
   }
+  @font-face{font-family:'Didot';src:url('Didot-Italic.woff2') format('woff2');font-weight:400;font-style:italic;font-display:swap;}
+  @font-face{font-family:'Metropolis';src:url('Metropolis-Thin.woff2') format('woff2');font-weight:100;font-style:normal;font-display:swap;}
+  @font-face{font-family:'Metropolis';src:url('Metropolis-ThinItalic.woff2') format('woff2');font-weight:100;font-style:italic;font-display:swap;}
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
     margin:0;
-    font-family:'Proxima Nova','Jost',sans-serif;
+    font-family:'Metropolis','Jost',sans-serif;
     background:var(--cream);
     color:var(--ink);
     font-weight:300;
@@ -75,6 +78,7 @@
   .wrap{max-width:1240px;margin:0 auto;padding:0 32px;}
   section[id]{scroll-margin-top:90px;}
   h1,h2,h3{font-family:'Didot','Instrument Serif',Georgia,serif;font-weight:400;margin:0;letter-spacing:0.005em;}
+  h1 em,h2 em,h3 em{font-family:'Didot','Instrument Serif',Georgia,serif;font-style:italic;}
   .eyebrow{
     font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;
     font-weight:500;color:var(--gold);
@@ -95,7 +99,7 @@
   }
   .logo-lockup{display:flex;align-items:center;gap:10px;}
   .logo-mark{height:34px;width:auto;}
-  .logo-word{font-family:'Didot','Instrument Serif',Georgia,serif;font-size:1.15rem;letter-spacing:0.03em;color:#fff;}
+  .logo-word{font-family:'Didot','Instrument Serif',Georgia,serif;font-style:italic;font-size:1.15rem;letter-spacing:0.03em;color:#fff;}
   .logo-word em{font-style:italic;color:var(--gold);}
   footer .logo-mark{height:42px;}
   footer .logo-word{font-size:1.3rem;}
@@ -126,7 +130,7 @@
     transition:opacity .25s ease, transform .25s ease, visibility .25s;
   }
   .mobile-menu.is-open{opacity:1;visibility:visible;transform:none;}
-  .mobile-menu a{color:#fff;font-size:1.15rem;letter-spacing:0.08em;text-transform:uppercase;font-family:'Didot','Instrument Serif',Georgia,serif;}
+  .mobile-menu a{color:#fff;font-size:1.15rem;letter-spacing:0.08em;text-transform:uppercase;font-family:'Didot','Instrument Serif',Georgia,serif;font-style:italic;}
   .mobile-menu a:hover{color:var(--gold);}
   @media(min-width:901px){.mobile-menu{display:none;}}
   .nav-burger.is-open span:nth-child(1){transform:translateY(6px) rotate(45deg);}

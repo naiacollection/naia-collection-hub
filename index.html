@@ -116,6 +116,22 @@
     .nav-links{display:none;}
     .nav-burger{display:flex;}
   }
+  .nav-burger{transition:opacity .2s;}
+  .nav-burger span{transition:transform .25s ease, opacity .25s ease;}
+  .mobile-menu{
+    position:fixed;inset:0;z-index:99;
+    background:rgba(20,19,17,0.97);backdrop-filter:blur(6px);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;
+    opacity:0;visibility:hidden;transform:translateY(-10px);
+    transition:opacity .25s ease, transform .25s ease, visibility .25s;
+  }
+  .mobile-menu.is-open{opacity:1;visibility:visible;transform:none;}
+  .mobile-menu a{color:#fff;font-size:1.15rem;letter-spacing:0.08em;text-transform:uppercase;font-family:'Didot','Instrument Serif',Georgia,serif;}
+  .mobile-menu a:hover{color:var(--gold);}
+  @media(min-width:901px){.mobile-menu{display:none;}}
+  .nav-burger.is-open span:nth-child(1){transform:translateY(6px) rotate(45deg);}
+  .nav-burger.is-open span:nth-child(2){opacity:0;}
+  .nav-burger.is-open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
 
   /* ---------- HERO ---------- */
   .hero{
@@ -278,7 +294,14 @@
     <a class="nav-login" href="https://travel.naiacollection.com/dashboard" target="_blank" rel="noopener">
       <span>Accedi</span>
     </a>
-    <div class="nav-burger"><span></span><span></span><span></span></div>
+    <div class="nav-burger" id="navBurger" role="button" aria-label="Apri menu" aria-expanded="false" tabindex="0"><span></span><span></span><span></span></div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#ecosistema">Ecosistema</a>
+    <a href="#divisioni">Divisioni</a>
+    <a href="#chi-siamo">Chi siamo</a>
+    <a href="#contatti">Contatti</a>
+    <a href="https://travel.naiacollection.com/dashboard" target="_blank" rel="noopener">Accedi</a>
   </div>
 </header>
 
@@ -425,6 +448,20 @@
     });
   }, {threshold:0.12});
   revealEls.forEach(el => io.observe(el));
+
+  // mobile menu toggle
+  const navBurger = document.getElementById('navBurger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  function toggleMobileMenu(force){
+    const isOpen = typeof force === 'boolean' ? force : !mobileMenu.classList.contains('is-open');
+    mobileMenu.classList.toggle('is-open', isOpen);
+    navBurger.classList.toggle('is-open', isOpen);
+    navBurger.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }
+  navBurger.addEventListener('click', () => toggleMobileMenu());
+  navBurger.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggleMobileMenu(); } });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMobileMenu(false)));
 </script>
 
 </body>

@@ -241,11 +241,11 @@
   .editorial{padding:0;}
   .ed-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:2px;}
   .ed-grid img{width:100%;height:100%;object-fit:cover;}
-  .ed-text{background:var(--ink);color:var(--cream);padding:60px;display:flex;flex-direction:column;justify-content:center;}
+  .ed-text{background:var(--cream);color:var(--ink);padding:60px;display:flex;flex-direction:column;justify-content:center;}
   .ed-text .eyebrow{color:var(--gold);margin-bottom:20px;}
   .ed-text h2{font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.25;margin-bottom:22px;}
-  .ed-text p{color:rgba(244,239,230,0.75);line-height:1.7;font-size:0.94rem;margin-bottom:30px;}
-  @media(max-width:900px){.ed-grid{grid-template-columns:1fr;}.ed-text{padding:50px 30px;}}
+  .ed-text p{color:var(--ink-soft);line-height:1.7;font-size:0.94rem;margin-bottom:30px;}
+  @media(max-width:900px){.ed-grid{grid-template-columns:1fr;}.ed-text{padding:50px 30px;order:1;}.ed-grid img{order:2;}}
 
   /* ---------- NUMBERS ---------- */
   .numbers{padding:110px 0;background:var(--cream-2);}
@@ -372,7 +372,7 @@
       <span class="eyebrow">Chi siamo</span>
       <h2>Radici toscane, standard internazionale.</h2>
       <p>NAÏA nasce dall'unione tra la conoscenza profonda del territorio e un metodo di lavoro rigoroso, pensato per proprietari che cercano un partner unico lungo tutto il ciclo di vita del loro immobile.</p>
-      <a href="#contatti" class="btn btn-light" style="align-self:flex-start;">
+      <a href="#contatti" class="btn btn-dark" style="align-self:flex-start;">
         <span>Parla con noi</span>
       </a>
     </div>

@@ -338,6 +338,11 @@ src="https://www.facebook.com/tr?id=1833565181412626&ev=PageView&noscript=1"
 
   .footer-map{width:100%;margin:40px 0 30px;border-radius:4px;overflow:hidden;}
   .footer-map iframe{width:100%;display:block;}
+
+  .mobile-menu-close{position:absolute;top:22px;right:24px;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,0.14);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;}
+  .mobile-menu-close span{position:absolute;width:20px;height:2px;background:#fff;border-radius:2px;}
+  .mobile-menu-close span:nth-child(1){transform:rotate(45deg);}
+  .mobile-menu-close span:nth-child(2){transform:rotate(-45deg);}
 </style>
 </head>
 <body>
@@ -357,6 +362,7 @@ src="https://www.facebook.com/tr?id=1833565181412626&ev=PageView&noscript=1"
     <div class="nav-burger" id="navBurger" role="button" aria-label="Apri menu" aria-expanded="false" tabindex="0"><span></span><span></span><span></span></div>
   </div>
   <div class="mobile-menu" id="mobileMenu">
+    <button type="button" class="mobile-menu-close" id="mobileMenuClose" aria-label="Chiudi menu"><span></span><span></span></button>
     <a href="#ecosistema">Ecosistema</a>
     <a href="#divisioni">Divisioni</a>
     <a href="#chi-siamo">Chi siamo</a>
@@ -523,6 +529,8 @@ src="https://www.facebook.com/tr?id=1833565181412626&ev=PageView&noscript=1"
   // mobile menu toggle
   const navBurger = document.getElementById('navBurger');
   const mobileMenu = document.getElementById('mobileMenu');
+  const mobileMenuClose = document.getElementById('mobileMenuClose');
+  if (mobileMenuClose) { mobileMenuClose.addEventListener('click', () => toggleMobileMenu(false)); }
   let menuScrollY = 0;
   function lockMenuScroll(){
     menuScrollY = window.scrollY || document.documentElement.scrollTop || 0;

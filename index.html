@@ -152,8 +152,9 @@ src="https://www.facebook.com/tr?id=1833565181412626&ev=PageView&noscript=1"
     transition:all .2s ease;
   }
   .nav-login:hover{border-color:#fff;background:rgba(255,255,255,0.08);}
-  .nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
-  .nav-burger span{width:22px;height:2px;background:#fff;display:block;border-radius:2px;filter:drop-shadow(0 1px 3px rgba(0,0,0,0.7));}
+  .nav-burger{display:none;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;width:42px;height:42px;border-radius:50%;background:rgba(20,19,17,0.35);box-shadow:0 1px 4px rgba(0,0,0,0.3);transition:background .2s ease;}
+  .nav-burger span{width:20px;height:2px;background:#fff;display:block;border-radius:2px;}
+  .nav-burger.is-open{background:rgba(255,255,255,0.18);}
   @media(max-width:900px){
     .nav-links{display:none;}
     .nav-burger{display:flex;}

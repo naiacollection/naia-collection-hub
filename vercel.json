@@ -1,0 +1,74 @@
+{
+  "redirects": [
+    {
+      "source": "/collection/:path*",
+      "destination": "https://travel.naiacollection.com/collection/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/experiences/:path*",
+      "destination": "https://travel.naiacollection.com/experiences/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/destinations/:path*",
+      "destination": "https://travel.naiacollection.com/destinations/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "https://travel.naiacollection.com/contact",
+      "permanent": true
+    },
+    {
+      "source": "/property-managers",
+      "destination": "https://travel.naiacollection.com/property-managers",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "https://travel.naiacollection.com/about",
+      "permanent": true
+    },
+    {
+      "source": "/faq",
+      "destination": "https://travel.naiacollection.com/faq",
+      "permanent": true
+    },
+    {
+      "source": "/owners",
+      "destination": "https://travel.naiacollection.com/owners",
+      "permanent": true
+    },
+    {
+      "source": "/agency-network",
+      "destination": "https://travel.naiacollection.com/agency-network",
+      "permanent": true
+    },
+    {
+      "source": "/travel-advisors",
+      "destination": "https://travel.naiacollection.com/travel-advisors",
+      "permanent": true
+    },
+    {
+      "source": "/booking/:path*",
+      "destination": "https://travel.naiacollection.com/booking/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/login",
+      "destination": "https://travel.naiacollection.com/login",
+      "permanent": true
+    },
+    {
+      "source": "/signup",
+      "destination": "https://travel.naiacollection.com/signup",
+      "permanent": true
+    },
+    {
+      "source": "/dashboard/:path*",
+      "destination": "https://travel.naiacollection.com/dashboard/:path*",
+      "permanent": true
+    }
+  ]
+}

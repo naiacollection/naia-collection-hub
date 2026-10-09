@@ -140,7 +140,11 @@ src="https://www.facebook.com/tr?id=1833565181412626&ev=PageView&noscript=1"
     backdrop-filter:blur(6px);
   }
   .brand-logo{display:block;height:34px;width:auto;}
-  @media(max-width:700px){.brand-logo{height:28px;}}
+  @media(max-width:700px){
+    header.site-nav,header.site-nav.scrolled{padding-left:20px;padding-right:20px;}
+    .nav-right{gap:10px;}
+    .brand-logo{height:26px;}
+  }
   .nav-links{display:flex;gap:34px;align-items:center;font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;}
   .nav-links a{opacity:0.9;transition:opacity .2s;}
   .nav-links a:hover{opacity:1;border-bottom:1px solid var(--gold);}
